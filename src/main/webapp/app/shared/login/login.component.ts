@@ -55,11 +55,7 @@ export class LoginModalComponent implements AfterViewInit {
         () => {
           this.authenticationError = false;
           this.activeModal.close();
-          if (
-            this.router.url === '/account/register' ||
-            this.router.url.startsWith('/account/activate') ||
-            this.router.url.startsWith('/account/reset/')
-          ) {
+          if (this.router.url === '/account/register' || this.router.url.startsWith('/account/activate')) {
             this.router.navigate(['']);
           }
         },
@@ -70,10 +66,5 @@ export class LoginModalComponent implements AfterViewInit {
   register(): void {
     this.activeModal.dismiss('to state register');
     this.router.navigate(['/account/register']);
-  }
-
-  requestResetPassword(): void {
-    this.activeModal.dismiss('to state requestReset');
-    this.router.navigate(['/account/reset', 'request']);
   }
 }
