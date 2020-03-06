@@ -22,8 +22,6 @@ public interface UserRepository extends JpaRepository<User, Long> {
 
     String USERS_BY_LOGIN_CACHE = "usersByLogin";
 
-    Optional<User> findOneByActivationKey(String activationKey);
-
     Optional<User> findOneByLogin(String login);
 
     @EntityGraph(attributePaths = "authorities")

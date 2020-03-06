@@ -15,7 +15,6 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.security.web.authentication.RememberMeServices;
 import org.springframework.security.web.csrf.CookieCsrfTokenRepository;
 import org.springframework.security.web.csrf.CsrfFilter;
 import org.springframework.security.web.header.writers.ReferrerPolicyHeaderWriter;
@@ -29,14 +28,11 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
     private final JHipsterProperties jHipsterProperties;
 
-    private final RememberMeServices rememberMeServices;
-
     private final CorsFilter corsFilter;
     private final SecurityProblemSupport problemSupport;
 
-    public SecurityConfiguration(JHipsterProperties jHipsterProperties, RememberMeServices rememberMeServices, CorsFilter corsFilter, SecurityProblemSupport problemSupport) {
+    public SecurityConfiguration(JHipsterProperties jHipsterProperties, CorsFilter corsFilter, SecurityProblemSupport problemSupport) {
         this.jHipsterProperties = jHipsterProperties;
-        this.rememberMeServices = rememberMeServices;
         this.corsFilter = corsFilter;
         this.problemSupport = problemSupport;
     }
@@ -85,7 +81,6 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .accessDeniedHandler(problemSupport)
         .and()
             .rememberMe()
-            .rememberMeServices(rememberMeServices)
             .rememberMeParameter("remember-me")
             .key(jHipsterProperties.getSecurity().getRememberMe().getKey())
         .and()
@@ -113,7 +108,6 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
             .authorizeRequests()
             .antMatchers("/api/authenticate").permitAll()
             .antMatchers("/api/register").permitAll()
-            .antMatchers("/api/activate").permitAll()
             .antMatchers("/api/account/reset-password/init").permitAll()
             .antMatchers("/api/account/reset-password/finish").permitAll()
             .antMatchers("/api/**").authenticated()

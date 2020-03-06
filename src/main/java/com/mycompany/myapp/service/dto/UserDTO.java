@@ -30,9 +30,6 @@ public class UserDTO {
 
     private boolean activated = false;
 
-    @Size(min = 2, max = 10)
-    private String langKey;
-
     private Set<String> authorities;
 
     public UserDTO() {
@@ -45,7 +42,6 @@ public class UserDTO {
         this.firstName = user.getFirstName();
         this.lastName = user.getLastName();
         this.activated = user.getActivated();
-        this.langKey = user.getLangKey();
         this.authorities = user.getAuthorities().stream()
             .map(Authority::getName)
             .collect(Collectors.toSet());
@@ -91,14 +87,6 @@ public class UserDTO {
         this.activated = activated;
     }
 
-    public String getLangKey() {
-        return langKey;
-    }
-
-    public void setLangKey(String langKey) {
-        this.langKey = langKey;
-    }
-
     public Set<String> getAuthorities() {
         return authorities;
     }
@@ -114,7 +102,6 @@ public class UserDTO {
             ", firstName='" + firstName + '\'' +
             ", lastName='" + lastName + '\'' +
             ", activated=" + activated +
-            ", langKey='" + langKey + '\'' +
             ", authorities=" + authorities +
             "}";
     }

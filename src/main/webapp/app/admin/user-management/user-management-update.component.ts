@@ -20,7 +20,6 @@ export class UserManagementUpdateComponent implements OnInit {
     firstName: ['', [Validators.maxLength(50)]],
     lastName: ['', [Validators.maxLength(50)]],
     activated: [],
-    langKey: [],
     authorities: []
   });
 
@@ -54,7 +53,6 @@ export class UserManagementUpdateComponent implements OnInit {
         () => this.onSaveError()
       );
     } else {
-      this.user.langKey = 'en';
       this.userService.create(this.user).subscribe(
         () => this.onSaveSuccess(),
         () => this.onSaveError()
@@ -69,7 +67,6 @@ export class UserManagementUpdateComponent implements OnInit {
       firstName: user.firstName,
       lastName: user.lastName,
       activated: user.activated,
-      langKey: user.langKey,
       authorities: user.authorities
     });
   }
@@ -79,7 +76,6 @@ export class UserManagementUpdateComponent implements OnInit {
     user.firstName = this.editForm.get(['firstName'])!.value;
     user.lastName = this.editForm.get(['lastName'])!.value;
     user.activated = this.editForm.get(['activated'])!.value;
-    user.langKey = this.editForm.get(['langKey'])!.value;
     user.authorities = this.editForm.get(['authorities'])!.value;
   }
 
