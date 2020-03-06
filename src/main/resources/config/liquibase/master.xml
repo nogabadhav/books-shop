@@ -15,5 +15,134 @@
 
     <include file="config/liquibase/changelog/00000000000000_initial_schema.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
+    <changeSet author="nogabadhav (generated)" id="1583450179071-2">
+        <createTable tableName="books">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="booksPK"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="nogabadhav (generated)" id="1583494003552-3">
+        <createTable tableName="authors">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="authorsPK"/>
+            </column>
+            <column name="name" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="nogabadhav (generated)" id="1583494003552-4">
+        <createTable tableName="catagories">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="catagoriesPK"/>
+            </column>
+            <column name="description" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="name" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="nogabadhav (generated)" id="1583494003552-5">
+        <createTable tableName="order_books">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="order_booksPK"/>
+            </column>
+            <column name="amount" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="book_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="nogabadhav (generated)" id="1583494003552-6">
+        <createTable tableName="order_status">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="order_statusPK"/>
+            </column>
+            <column name="status" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="nogabadhav (generated)" id="1583494003552-7">
+        <createTable tableName="orders">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="ordersPK"/>
+            </column>
+            <column name="order_status_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="nogabadhav (generated)" id="1583494003552-8">
+        <createTable tableName="orders_book_orders">
+            <column name="order_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="book_orders_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="nogabadhav (generated)" id="1583494003552-9">
+        <createTable tableName="recommended_books">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="recommended_booksPK"/>
+            </column>
+            <column name="rank" type="INT"/>
+            <column name="book_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="nogabadhav (generated)" id="1583494003552-10">
+        <addColumn tableName="books">
+            <column name="author_id" type="bigint"/>
+        </addColumn>
+    </changeSet>
+    <changeSet author="nogabadhav (generated)" id="1583494003552-11">
+        <addColumn tableName="books">
+            <column name="catagory_id" type="bigint"/>
+        </addColumn>
+    </changeSet>
+    <changeSet author="nogabadhav (generated)" id="1583494003552-12">
+        <addColumn tableName="books">
+            <column name="inventory" type="integer">
+                <constraints nullable="false"/>
+            </column>
+        </addColumn>
+    </changeSet>
+    <changeSet author="nogabadhav (generated)" id="1583494003552-13">
+        <addColumn tableName="books">
+            <column name="name" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+        </addColumn>
+    </changeSet>
+    <changeSet author="nogabadhav (generated)" id="1583494003552-14">
+        <addColumn tableName="books">
+            <column name="price" type="double precision">
+                <constraints nullable="false"/>
+            </column>
+        </addColumn>
+    </changeSet>
+    <changeSet author="nogabadhav (generated)" id="1583494003552-15">
+        <addUniqueConstraint columnNames="book_orders_id" constraintName="UK_44ee42sbggou080de7kvvuhnb" tableName="orders_book_orders"/>
+    </changeSet>
+    <changeSet author="nogabadhav (generated)" id="1583494003552-16">
+        <addForeignKeyConstraint baseColumnNames="order_status_id" baseTableName="orders" constraintName="FK2n7p8t83wo7x0lep1q06a6cvy" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="order_status" validate="true"/>
+    </changeSet>
+    <changeSet author="nogabadhav (generated)" id="1583494003552-17">
+        <addForeignKeyConstraint baseColumnNames="book_id" baseTableName="recommended_books" constraintName="FK47w852tvsvttl4598q9xo2ab0" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="books" validate="true"/>
+    </changeSet>
+    <changeSet author="nogabadhav (generated)" id="1583494003552-18">
+        <addForeignKeyConstraint baseColumnNames="book_id" baseTableName="order_books" constraintName="FK7jqqp3k5449j9c6sllmyp263l" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="books" validate="true"/>
+    </changeSet>
+    <changeSet author="nogabadhav (generated)" id="1583494003552-19">
+        <addForeignKeyConstraint baseColumnNames="author_id" baseTableName="books" constraintName="FKfjixh2vym2cvfj3ufxj91jem7" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="authors" validate="true"/>
+    </changeSet>
+    <changeSet author="nogabadhav (generated)" id="1583494003552-20">
+        <addForeignKeyConstraint baseColumnNames="order_id" baseTableName="orders_book_orders" constraintName="FKfsm8cw314s5kqy30qm9jldipw" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="orders" validate="true"/>
+    </changeSet>
+    <changeSet author="nogabadhav (generated)" id="1583494003552-21">
+        <addForeignKeyConstraint baseColumnNames="book_orders_id" baseTableName="orders_book_orders" constraintName="FKgid2fvgk7bftn2w32lc3mrb8q" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="order_books" validate="true"/>
+    </changeSet>
+    <changeSet author="nogabadhav (generated)" id="1583494003552-22">
+        <addForeignKeyConstraint baseColumnNames="catagory_id" baseTableName="books" constraintName="FKlx85s7yjl6vqu47072j6kfu6q" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="catagories" validate="true"/>
+    </changeSet>
     <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->
 </databaseChangeLog>

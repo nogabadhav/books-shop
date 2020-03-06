@@ -35,6 +35,11 @@
     "dtoSuffix": "DTO",
     "otherModules": [],
     "enableTranslation": false,
-    "blueprints": []
+    "blueprints": [],
+    "appsFolders": ["BooksShop"],
+    "directoryPath": "../",
+    "monitoring": "no",
+    "consoleOptions": [],
+    "jwtSecretKey": "NmFiNTEwNjA1M2QxYjVjZTdmNjc5NjRjYTQwZDhhNWE3ZGM3MDhkYjJhY2M1ZmZmZDYxMWE4NDZlOGEwNmM5YThhMjU0ODQyZDRkOWJlZDQwOTBiYWNkNDBmMWQ2YmI3NWI2Nw=="
   }
 }
