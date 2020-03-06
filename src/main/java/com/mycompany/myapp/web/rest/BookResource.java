@@ -2,9 +2,9 @@ package com.mycompany.myapp.web.rest;
 
 import com.mycompany.myapp.domain.Book;
 import com.mycompany.myapp.service.BookService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import com.mycompany.myapp.service.OrderService;
+import com.mycompany.myapp.service.dto.OrderDTO;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -13,13 +13,30 @@ import java.util.List;
 public class BookResource {
 
     private BookService bookService;
+    private OrderService orderService;
 
-    public BookResource(BookService bookService) {
+    public BookResource(BookService bookService, OrderService orderService) {
         this.bookService = bookService;
+        this.orderService = orderService;
     }
 
     @GetMapping("/recommended")
     public List<Book> getRecommended() {
         return bookService.getRecommended();
+    }
+
+    @GetMapping("/category/{name}")
+    public List<Book> getByCatagory(@PathVariable String name) {
+        return bookService.getByCategory(name);
+    }
+
+    @GetMapping("/all")
+    public List<Book> getAll() {
+        return bookService.getAll();
+    }
+
+    @PostMapping("/order")
+    public void order(@RequestBody OrderDTO orderDTO) {
+        orderService.order(orderDTO);
     }
 }

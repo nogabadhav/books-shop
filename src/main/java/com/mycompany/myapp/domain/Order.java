@@ -1,7 +1,10 @@
 package com.mycompany.myapp.domain;
 
+import org.springframework.data.annotation.CreatedDate;
+
 import javax.persistence.*;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 @Entity
@@ -17,6 +20,12 @@ public class Order {
 
     @OneToMany
     private List<BookOrder> bookOrders = new ArrayList<>();
+
+    @ManyToOne
+    private User user;
+
+    @CreatedDate
+    private Date time;
 
     public Long getId() {
         return id;
@@ -38,7 +47,27 @@ public class Order {
         return bookOrders;
     }
 
+    public void setBookOrders(List<BookOrder> bookOrders) {
+        this.bookOrders = bookOrders;
+    }
+
     public double price() {
         return bookOrders.stream().mapToDouble(BookOrder::price).sum();
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public Date getTime() {
+        return time;
+    }
+
+    public void setTime(Date time) {
+        this.time = time;
     }
 }

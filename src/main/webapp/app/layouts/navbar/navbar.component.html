@@ -12,7 +12,14 @@
                 <a class="nav-link" routerLink="/" (click)="collapseNavbar()">
                     <span>
                         <fa-icon icon="home"></fa-icon>
-                        <span>Home</span>
+                        <span>מומלצים</span>
+                    </span>
+                </a>
+            </li>
+            <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+                <a class="nav-link" routerLink="/" (click)="collapseNavbar()">
+                    <span>
+                        <span>סל קניות</span>
                     </span>
                 </a>
             </li>
@@ -37,7 +44,7 @@
                     <span>
                         <fa-icon icon="user"></fa-icon>
                         <span>
-                            Account
+                            משתמש
                         </span>
                     </span>
                 </a>
@@ -45,19 +52,66 @@
                     <li *ngSwitchCase="true">
                         <a class="dropdown-item" (click)="logout()" id="logout">
                             <fa-icon icon="sign-out-alt" fixedWidth="true"></fa-icon>
-                            <span>Sign out</span>
+                            <span>התנתקות</span>
                         </a>
                     </li>
                     <li *ngSwitchCase="false">
                         <a class="dropdown-item" (click)="login()" id="login">
                             <fa-icon icon="sign-in-alt" fixedWidth="true"></fa-icon>
-                            <span>Sign in</span>
+                            <span>התחברות</span>
                         </a>
                     </li>
                     <li *ngSwitchCase="false">
                         <a class="dropdown-item" routerLink="account/register" routerLinkActive="active" (click)="collapseNavbar()">
                             <fa-icon icon="user-plus" fixedWidth="true"></fa-icon>
-                            <span>Register</span>
+                            <span>הרשמה</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li ngbDropdown class="nav-item dropdown pointer" display="dynamic" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+                <a class="nav-link dropdown-toggle" ngbDropdownToggle href="javascript:void(0);" id="books-menu">
+                    <span>
+                        <span>
+                            קטגוריות
+                        </span>
+                    </span>
+                </a>
+                <ul class="dropdown-menu" ngbDropdownMenu aria-labelledby="account-menu">
+                    <li>
+                        <a class="dropdown-item" [routerLink]="['book/category', 'מתח']">
+                            <fa-icon icon="sign-out-alt" fixedWidth="true"></fa-icon>
+                            <span>מתח</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" [routerLink]="['book/category', 'פנטזיה']">
+                            <fa-icon icon="sign-in-alt" fixedWidth="true"></fa-icon>
+                            <span>פנטזיה</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" [routerLink]="['book/category', 'רומן']">
+                            <fa-icon icon="user-plus" fixedWidth="true"></fa-icon>
+                            <span>רומן</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" [routerLink]="['book/category', 'עיון']">
+                            <fa-icon icon="user-plus" fixedWidth="true"></fa-icon>
+                            <span>עיון</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" [routerLink]="['book/category', 'נוער']">
+                            <fa-icon icon="user-plus" fixedWidth="true"></fa-icon>
+                            <span>נוער</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" [routerLink]="['book/category', 'ילדים']">
+                            <fa-icon icon="user-plus" fixedWidth="true"></fa-icon>
+                            <span>ילדים</span>
                         </a>
                     </li>
                 </ul>

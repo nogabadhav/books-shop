@@ -13,4 +13,8 @@ export class BookService {
   getRecommended(): Observable<IBook[]> {
     return this.http.get<IBook[]>(`${this.resourceUrl}/recommended`);
   }
+
+  getByCategory(name: string): Observable<IBook[]> {
+    return this.http.get<IBook[]>(`${this.resourceUrl}/category/${name}`);
+  }
 }

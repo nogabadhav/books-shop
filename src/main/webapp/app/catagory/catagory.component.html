@@ -1,0 +1,16 @@
+<div dir="rtl" class="row">
+    <div class="home">
+        <h1 class="display-4">ספרים מומלצים</h1>
+
+        <div [ngSwitch]="isAuthenticated()">
+            <div class="alert alert-warning" *ngSwitchCase="false">
+                <a class="alert-link" (click)="login()">התחבר</a>
+                או
+                <a class="alert-link" routerLink="account/register">הירשם</a>
+                כדי להזמין
+            </div>
+        </div>
+
+        <app-books [books]="books"></app-books>
+    </div>
+</div>

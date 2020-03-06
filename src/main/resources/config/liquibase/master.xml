@@ -152,5 +152,18 @@
     <changeSet author="nogabadhav (generated)" id="1583515866615-1">
         <addUniqueConstraint columnNames="login" constraintName="UC_USERSLOGIN_COL" tableName="users"/>
     </changeSet>
+    <changeSet author="nogabadhav (generated)" id="1583533264385-3">
+        <addColumn tableName="orders">
+            <column name="time" type="datetime(6)"/>
+        </addColumn>
+    </changeSet>
+    <changeSet author="nogabadhav (generated)" id="1583533264385-4">
+        <addColumn tableName="orders">
+            <column name="user_id" type="bigint"/>
+        </addColumn>
+    </changeSet>
+    <changeSet author="nogabadhav (generated)" id="1583533264385-5">
+        <addForeignKeyConstraint baseColumnNames="user_id" baseTableName="orders" constraintName="FK32ql8ubntj5uh44ph9659tiih" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="users" validate="true"/>
+    </changeSet>
     <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->
 </databaseChangeLog>

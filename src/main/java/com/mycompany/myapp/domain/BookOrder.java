@@ -30,16 +30,18 @@ public class BookOrder {
         return book;
     }
 
-    public void setBook(Book book) {
+    public BookOrder setBook(Book book) {
         this.book = book;
+        return this;
     }
 
     public Integer getAmount() {
         return amount;
     }
 
-    public void setAmount(Integer amount) {
+    public BookOrder setAmount(Integer amount) {
         this.amount = amount;
+        return this;
     }
 
     public double price() {
