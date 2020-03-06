@@ -3,7 +3,7 @@
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   transition: 0.3s;
   width: 250px;
-  height: 300px;
+  height: 450px;
 }
 
 /* On mouse-over, add a deeper shadow */
@@ -20,11 +20,15 @@
 .book {
   display: inline-block;
   width: 250px;
-  height: 250px;
+  height: 400px;
   //background: url('../../../content/images/harrypotter.jpg') no-repeat center top;
   background-size: cover !important;
 }
 
 .card-wrapper {
   display: grid;
+}
+
+.book-data {
+  font-size: large;
 }
