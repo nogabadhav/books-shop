@@ -144,5 +144,13 @@
     <changeSet author="nogabadhav (generated)" id="1583494003552-22">
         <addForeignKeyConstraint baseColumnNames="catagory_id" baseTableName="books" constraintName="FKlx85s7yjl6vqu47072j6kfu6q" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="catagories" validate="true"/>
     </changeSet>
+    <changeSet author="nogabadhav (generated)" id="1583515866615-3">
+        <addColumn tableName="books">
+            <column name="image_url" type="varchar(255)"/>
+        </addColumn>
+    </changeSet>
+    <changeSet author="nogabadhav (generated)" id="1583515866615-1">
+        <addUniqueConstraint columnNames="login" constraintName="UC_USERSLOGIN_COL" tableName="users"/>
+    </changeSet>
     <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->
 </databaseChangeLog>

@@ -30,6 +30,9 @@ public class Book implements Serializable {
     @NotNull
     private Integer inventory;
 
+    @Column(name = "image_url")
+    private String imageUrl;
+
     public Long getId() {
         return id;
     }
@@ -76,5 +79,13 @@ public class Book implements Serializable {
 
     public void setInventory(int inventory) {
         this.inventory = inventory;
+    }
+
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
     }
 }

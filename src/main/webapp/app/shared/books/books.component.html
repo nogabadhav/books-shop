@@ -1,0 +1,11 @@
+<div>
+    <div *ngFor="let book of books" class="card-wrapper">
+        <div class="card">
+            <span class="book img-fluid rounded"
+                  [ngStyle]="{'background': 'url(\'' + book.imageUrl + '\') no-repeat center top'}"></span>
+            <div class="container">
+                <h4><b>{{book.name}}</b></h4>
+            </div>
+        </div>
+    </div>
+</div>
