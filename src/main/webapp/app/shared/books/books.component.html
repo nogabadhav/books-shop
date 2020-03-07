@@ -4,8 +4,21 @@
             <span class="book img-fluid rounded"
                   [ngStyle]="{'background': 'url(\'' + book.imageUrl + '\') no-repeat center top'}"></span>
             <div class="container">
-                <h4 class="book-data"><b>{{book.name}}</b></h4><br/>
-                <h4 class="book-data"><b>{{book.price + 'ש״ח '}}</b></h4>
+                <h4 class="book-data"><b>{{book.name}}</b></h4>
+                <h4 class="book-data"><b>{{book.price + ' ש״ח'}}</b></h4>
+                <hr *ngIf="isAuthenticated()" />
+                <div [ngSwitch]="book.inventory" *ngIf="isAuthenticated()">
+                    <div *ngSwitchCase="0" class="text-wrapper">
+                        <span class="text-danger">אזל המלאי</span>
+                    </div>
+                    <form class="form-wrapper" *ngSwitchDefault>
+                        <input class="form-input" type="number" id="amount" name="amount" min="1" max="100" [(ngModel)]="book.amount">
+                        <button class="btn btn-info" (click)="addToBasket(book)">
+                            <fa-icon icon="cart-plus"></fa-icon>
+                            <fa-icon icon="plus"></fa-icon>
+                        </button>
+                    </form>
+                </div>
             </div>
         </div>
     </div>

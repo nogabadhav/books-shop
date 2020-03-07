@@ -17,8 +17,7 @@ export class LoginModalComponent implements AfterViewInit {
 
   loginForm = this.fb.group({
     username: [''],
-    password: [''],
-    rememberMe: [false]
+    password: ['']
   });
 
   constructor(
@@ -48,8 +47,7 @@ export class LoginModalComponent implements AfterViewInit {
     this.loginService
       .login({
         username: this.loginForm.get('username')!.value,
-        password: this.loginForm.get('password')!.value,
-        rememberMe: this.loginForm.get('rememberMe')!.value
+        password: this.loginForm.get('password')!.value
       })
       .subscribe(
         () => {

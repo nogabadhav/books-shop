@@ -14,15 +14,13 @@ export class RegisterComponent implements AfterViewInit {
   @ViewChild('login', { static: false })
   login?: ElementRef;
 
-  doNotMatch = false;
   error = false;
   errorUserExists = false;
   success = false;
 
   registerForm = this.fb.group({
     login: ['', [Validators.required, Validators.minLength(1), Validators.maxLength(50), Validators.pattern('^[_.@A-Za-z0-9-]*$')]],
-    password: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(50)]],
-    confirmPassword: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(50)]]
+    password: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(50)]]
   });
 
   constructor(
@@ -39,20 +37,15 @@ export class RegisterComponent implements AfterViewInit {
   }
 
   register(): void {
-    this.doNotMatch = false;
     this.error = false;
     this.errorUserExists = false;
 
     const password = this.registerForm.get(['password'])!.value;
-    if (password !== this.registerForm.get(['confirmPassword'])!.value) {
-      this.doNotMatch = true;
-    } else {
-      const login = this.registerForm.get(['login'])!.value;
-      this.registerService.save({ login, password }).subscribe(
-        () => (this.success = true),
-        response => this.processError(response)
-      );
-    }
+    const login = this.registerForm.get(['login'])!.value;
+    this.registerService.save({ login, password }).subscribe(
+      () => (this.success = true),
+      response => this.processError(response)
+    );
   }
 
   openLogin(): void {

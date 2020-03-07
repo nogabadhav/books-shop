@@ -87,7 +87,7 @@ values (24, 12, 5, 'לא רציונלי ולא במקרה', 45.0, 3, '../../../c
 insert into books (id, author_id, catagory_id, name, price, inventory, image_url)
 values (25, 22, 2, 'נסיכת האפר', 45.0, 3, '../../../content/images/prince.jpg');
 insert into books (id, author_id, catagory_id, name, price, inventory, image_url)
-values (26, 23, 1, 'הבטיחי לי', 45.0, 3, '../../../content/images/promise.jpg');
+values (26, 23, 1, 'הבטיחי לי', 45.0, 0, '../../../content/images/promise.jpg');
 insert into books (id, author_id, catagory_id, name, price, inventory, image_url)
 values (27, 12, 5, 'לא רציונלי אבל לא נורא', 65.0, 2, '../../../content/images/rational.jpg');
 insert into books (id, author_id, catagory_id, name, price, inventory, image_url)

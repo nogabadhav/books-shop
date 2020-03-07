@@ -8,7 +8,7 @@
     </a>
     <div class="navbar-collapse collapse" id="navbarResponsive" [ngbCollapse]="isNavbarCollapsed" [ngSwitch]="isAuthenticated()">
         <ul class="navbar-nav ml-auto">
-            <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+            <li *ngSwitchCase="true" class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
                 <a class="nav-link" routerLink="/" (click)="collapseNavbar()">
                     <span>
                         <span>סל קניות</span>
@@ -39,7 +39,6 @@
                     </li>
                     <li>
                         <a class="dropdown-item" [routerLink]="['book/category', 'פנטזיה']">
-                            <fa-icon icon="sign-in-alt" fixedWidth="true"></fa-icon>
                             <span>פנטזיה</span>
                         </a>
                     </li>

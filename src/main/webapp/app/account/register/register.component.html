@@ -1,7 +1,7 @@
 <div>
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <h1>Registration</h1>
+            <h1>הרשמה</h1>
 
             <div class="alert alert-success" *ngIf="success">
                 <strong>Registration saved!</strong>
@@ -13,10 +13,6 @@
 
             <div class="alert alert-danger" *ngIf="errorUserExists">
                 <strong>Login name already registered!</strong> Please choose another one.
-            </div>
-
-            <div class="alert alert-danger" *ngIf="doNotMatch">
-                The password and its confirmation do not match!
             </div>
         </div>
     </div>
@@ -79,26 +75,9 @@
                     <label class="form-control-label" for="confirmPassword">New password confirmation</label>
                     <input type="password" class="form-control" id="confirmPassword" name="confirmPassword" placeholder="Confirm the new password"
                             formControlName="confirmPassword">
-
-                    <div *ngIf="registerForm.get('confirmPassword')!.invalid && (registerForm.get('confirmPassword')!.dirty || registerForm.get('confirmPassword')!.touched)">
-                        <small class="form-text text-danger"
-                               *ngIf="registerForm.get('confirmPassword')?.errors?.required">
-                            Your confirmation password is required.
-                        </small>
-
-                        <small class="form-text text-danger"
-                               *ngIf="registerForm.get('confirmPassword')?.errors?.minlength">
-                            Your confirmation password is required to be at least 4 characters.
-                        </small>
-
-                        <small class="form-text text-danger"
-                               *ngIf="registerForm.get('confirmPassword')?.errors?.maxlength">
-                            Your confirmation password cannot be longer than 50 characters.
-                        </small>
-                    </div>
                 </div>
 
-                <button type="submit" [disabled]="registerForm.invalid" class="btn btn-primary">Register</button>
+                <button type="submit" [disabled]="registerForm.invalid" class="btn btn-primary">הרשמה</button>
             </form>
 
             <div class="mt-3 alert alert-warning">

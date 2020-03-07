@@ -14,10 +14,7 @@ export class AuthServerProvider {
 
   login(credentials: Login): Observable<{}> {
     const data =
-      `username=${encodeURIComponent(credentials.username)}` +
-      `&password=${encodeURIComponent(credentials.password)}` +
-      `&remember-me=${credentials.rememberMe}` +
-      '&submit=Login';
+      `username=${encodeURIComponent(credentials.username)}` + `&password=${encodeURIComponent(credentials.password)}` + '&submit=Login';
 
     const headers = new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded');
 
