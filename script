@@ -1,0 +1,128 @@
+insert into authors values (1, 'ג.ק רולינג');
+insert into authors values (2, 'בקה פיצפטריק');
+insert into authors values (3, 'לאה גולדברג');
+insert into authors values (4, 'סטפני מאייר');
+insert into authors values (5, 'קיארה קס');
+insert into authors values (6, 'לאווה פורטנוי');
+insert into authors values (7, 'מרים רות');
+insert into authors values (8, 'לי ברדוגו');
+insert into authors values (9, 'אלונה פרנקל');
+insert into authors values (10, 'ברנדון סנדרסון');
+insert into authors values (11, 'יובל נוח הררי');
+insert into authors values (12, 'דן אריאלי');
+insert into authors values (13, 'דנה אבירם');
+insert into authors values (14, 'ניל גיימן');
+insert into authors values (15, 'סוזן קולינס');
+insert into authors values (16, 'פרד ורגאס');
+insert into authors values (17, 'שמואל אוסמן');
+insert into authors values (18, 'דן הופרט');
+insert into authors values (19, 'טרייסי קורדרוי');
+insert into authors values (20, 'פיטר סוונסון');
+insert into authors values (21, 'יגאל צור');
+insert into authors values (22, 'לאורה סבסטיאן');
+insert into authors values (23, 'הרלן קובן');
+insert into authors values (24, 'אוה אילנד');
+insert into authors values (25, 'רינת פרימו');
+insert into authors values (26, 'פאול מארק אורינטניוס');
+insert into authors values (27, 'אנגי סייג');
+insert into authors values (28, 'אמי רובינגר');
+insert into authors values (29, 'פמלה בוצרט');
+insert into authors values (30, 'סטיבן הוקינג');
+
+insert into catagories (id, name, description) values (1, 'מתח', 'מתח');
+insert into catagories (id, name, description) values (2, 'פנטזיה', 'פנטזיה');
+insert into catagories (id, name, description) values (3, 'רומן', 'רומן');
+insert into catagories (id, name, description) values (4, 'ילדים', 'ילדים');
+insert into catagories (id, name, description) values (5, 'עיון', 'עיון');
+insert into catagories (id, name, description) values (6, 'נוער', 'נוער');
+
+insert into books (id, author_id, catagory_id, name, price, inventory, image_url)
+values (1, 1, 2, 'הארי פוטר ואבן החכמים', 50.0, 100, '../../../content/images/harrypotter.jpg');
+insert into books (id, author_id, catagory_id, name, price, inventory, image_url)
+values (2, 2, 6, 'מלאך משמיים', 40.0, 10, '../../../content/images/angle.jpg');
+insert into books (id, author_id, catagory_id, name, price, inventory, image_url)
+values (3, 3, 4, 'דירה להשכיר', 20.0, 200, '../../../content/images/apartment.jpg');
+insert into books (id, author_id, catagory_id, name, price, inventory, image_url)
+values (4, 4, 6, 'גוף מארח', 50.0, 100, '../../../content/images/body.jpg');
+insert into books (id, author_id, catagory_id, name, price, inventory, image_url)
+values (5, 5, 6, 'המועמדת', 50.0, 100, '../../../content/images/candidate.jpg');
+insert into books (id, author_id, catagory_id, name, price, inventory, image_url)
+values (6, 6, 6, 'עליית בן הכלאיים', 50.0, 100, '../../../content/images/claym.jpg');
+insert into books (id, author_id, catagory_id, name, price, inventory, image_url)
+values (7, 7, 4, 'תירס חם', 50.0, 100, '../../../content/images/corn.jpg');
+insert into books (id, author_id, catagory_id, name, price, inventory, image_url)
+values (8, 8, 2, 'שישה עורבים', 50.0, 100, '../../../content/images/crow.jpg');
+insert into books (id, author_id, catagory_id, name, price, inventory, image_url)
+values (9, 9, 4, 'ספר הפילפילים', 50.0, 100, '../../../content/images/elephant.jpg');
+insert into books (id, author_id, catagory_id, name, price, inventory, image_url)
+values (10, 10, 2, 'אלנטריס', 50.0, 100, '../../../content/images/eltrs.jpg');
+insert into books (id, author_id, catagory_id, name, price, inventory, image_url)
+values (11, 13, 6, 'המשחק', 50.0, 100, '../../../content/images/game.jpg');
+insert into books (id, author_id, catagory_id, name, price, inventory, image_url)
+values (12, 14, 2, 'אלים אמריקאים', 50.0, 100, '../../../content/images/gods.png');
+insert into books (id, author_id, catagory_id, name, price, inventory, image_url)
+values (13, 11, 5, 'ההיסטוריה של המחר', 50.0, 100, '../../../content/images/history.jpg');
+insert into books (id, author_id, catagory_id, name, price, inventory, image_url)
+values (14, 11, 5, 'קיצור תולדות האנושות', 95.0, 110, '../../../content/images/human.jpg');
+insert into books (id, author_id, catagory_id, name, price, inventory, image_url)
+values (15, 15, 6, 'משחקי הרעב', 74.0, 110, '../../../content/images/hunger1.jpg');
+insert into books (id, author_id, catagory_id, name, price, inventory, image_url)
+values (16, 16, 1, 'קר כקרח', 74.0, 110, '../../../content/images/ice.jpg');
+insert into books (id, author_id, catagory_id, name, price, inventory, image_url)
+values (17, 17, 1, 'תהודת זהות', 74.0, 110, '../../../content/images/id.jpg');
+insert into books (id, author_id, catagory_id, name, price, inventory, image_url)
+values (18, 18, 4, 'בדרך למכלת', 74.0, 110, '../../../content/images/kid1.jpg');
+insert into books (id, author_id, catagory_id, name, price, inventory, image_url)
+values (19, 19, 4, 'הילד והדוב', 74.0, 110, '../../../content/images/kid2.jpg');
+insert into books (id, author_id, catagory_id, name, price, inventory, image_url)
+values (20, 20, 3, 'כל השקרים היפים', 74.0, 110, '../../../content/images/lies.jpg');
+insert into books (id, author_id, catagory_id, name, price, inventory, image_url)
+values (21, 21, 1, 'אבודה', 74.0, 110, '../../../content/images/lost.jpg');
+insert into books (id, author_id, catagory_id, name, price, inventory, image_url)
+values (22, 4, 6, 'מולד הירח', 74.0, 110, '../../../content/images/moon.jpg');
+insert into books (id, author_id, catagory_id, name, price, inventory, image_url)
+values (23, 3, 4, 'איה פלוטו', 13.0, 40, '../../../content/images/pluto.jpg');
+insert into books (id, author_id, catagory_id, name, price, inventory, image_url)
+values (24, 12, 5, 'לא רציונלי ולא במקרה', 45.0, 3, '../../../content/images/predictably.jpg');
+insert into books (id, author_id, catagory_id, name, price, inventory, image_url)
+values (25, 22, 2, 'נסיכת האפר', 45.0, 3, '../../../content/images/prince.jpg');
+insert into books (id, author_id, catagory_id, name, price, inventory, image_url)
+values (26, 23, 1, 'הבטיחי לי', 45.0, 3, '../../../content/images/promise.jpg');
+insert into books (id, author_id, catagory_id, name, price, inventory, image_url)
+values (27, 12, 5, 'לא רציונלי אבל לא נורא', 65.0, 2, '../../../content/images/rational.jpg');
+insert into books (id, author_id, catagory_id, name, price, inventory, image_url)
+values (28, 24, 4, 'לפעמים עצב מגיע בהפתעה', 12.0, 4, '../../../content/images/sad.jpg');
+insert into books (id, author_id, catagory_id, name, price, inventory, image_url)
+values (29, 25, 4, 'שלג של סביונים', 7.99, 1, '../../../content/images/snow.jpg');
+insert into books (id, author_id, catagory_id, name, price, inventory, image_url)
+values (30, 26, 2, 'שירת אנטנטו', 7.99, 1, '../../../content/images/song.jpg');
+insert into books (id, author_id, catagory_id, name, price, inventory, image_url)
+values (31, 27, 6, 'כישופ', 28.0, 1, '../../../content/images/spell.jpg');
+insert into books (id, author_id, catagory_id, name, price, inventory, image_url)
+values (32, 28, 4, 'חלום של שלחן כחל', 28.0, 31, '../../../content/images/table.jpg');
+insert into books (id, author_id, catagory_id, name, price, inventory, image_url)
+values (33, 29, 4, 'אסור לדגדג טיגריס', 13.0, 10, '../../../content/images/tigris.jpg');
+insert into books (id, author_id, catagory_id, name, price, inventory, image_url)
+values (34, 30, 5, 'קיצור תולדות הזמן', 105.0, 9, '../../../content/images/time.jpg');
+insert into books (id, author_id, catagory_id, name, price, inventory, image_url)
+values (35, 4, 6, 'דמדומים', 80.0, 30, '../../../content/images/twilight1.jpg');
+insert into books (id, author_id, catagory_id, name, price, inventory, image_url)
+values (36, 4, 6, 'שחר מפציע', 80.0, 30, '../../../content/images/twilight4.png');
+insert into books (id, author_id, catagory_id, name, price, inventory, image_url)
+values (37, 7, 4, 'הבית של יעל', 20.0, 6, '../../../content/images/yael.jpg');
+
+insert into recommended_books values (1, 90, 1);
+insert into recommended_books values (2, 70, 34);
+insert into recommended_books values (3, 55, 35);
+insert into recommended_books values (4, 100, 14);
+insert into recommended_books values (5, 60, 15);
+insert into recommended_books values (6, 80, 3);
+insert into recommended_books values (7, 75, 24);
+insert into recommended_books values (8, 40, 26);
+insert into recommended_books values (9, 20, 13);
+insert into recommended_books values (10, 10, 36);
+insert into recommended_books values (11, 30, 27);
+
+insert into order_status values (1, 'NEW');
+insert into order_status values (2, 'ON THE WAY');
+insert into order_status values (3, 'DELIVERED');

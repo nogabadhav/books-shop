@@ -9,7 +9,8 @@ import { switchMap } from 'rxjs/operators';
 
 @Component({
   selector: 'book-category',
-  templateUrl: './catagory.component.html'
+  templateUrl: './catagory.component.html',
+  styleUrls: ['catagory.component.scss']
 })
 export class CatagoryComponent implements OnInit, OnDestroy {
   name = '';
