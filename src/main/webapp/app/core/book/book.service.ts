@@ -12,20 +12,31 @@ export class BookService {
 
   constructor(private http: HttpClient) {}
 
-  private static initAmount(books: IBook[]): IBook[] {
-    books.forEach(b => (b.amount = 1));
+  private initBooks(books: IBook[]): IBook[] {
+    for (let b of books) {
+      b.amount = 1;
+      let find = this.basket.getValue().find(book => book.id === b.id);
+      if (find) {
+        b.isBasket = true;
+      }
+    }
     return books;
   }
 
   getRecommended(): Observable<IBook[]> {
-    return this.http.get<IBook[]>(`${this.resourceUrl}/recommended`).pipe(map(books => BookService.initAmount(books)));
+    return this.http.get<IBook[]>(`${this.resourceUrl}/recommended`).pipe(map(books => this.initBooks(books)));
   }
 
   getByCategory(name: string): Observable<IBook[]> {
-    return this.http.get<IBook[]>(`${this.resourceUrl}/category/${name}`).pipe(map(books => BookService.initAmount(books)));
+    return this.http.get<IBook[]>(`${this.resourceUrl}/category/${name}`).pipe(map(books => this.initBooks(books)));
+  }
+
+  pay(bookOrders: IBook[], userLogin: string): void {
+    this.http.post(`${this.resourceUrl}/order`, { bookOrders, userLogin });
   }
 
   addToBasket(book: IBook): void {
+    book.isBasket = true;
     this.basket.next([...this.basket.getValue(), book]);
   }
 
@@ -34,6 +45,7 @@ export class BookService {
   }
 
   removeFromBasket(book: IBook): void {
+    book.isBasket = false;
     this.basket.next(this.remove(this.basket.getValue(), book));
   }
 

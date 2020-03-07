@@ -8,15 +8,17 @@ public class BookOrderDTO {
         return name;
     }
 
-    public void setName(String name) {
+    public BookOrderDTO setName(String name) {
         this.name = name;
+        return this;
     }
 
     public int getAmount() {
         return amount;
     }
 
-    public void setAmount(int amount) {
+    public BookOrderDTO setAmount(int amount) {
         this.amount = amount;
+        return this;
     }
 }

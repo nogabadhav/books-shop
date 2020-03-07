@@ -10,9 +10,10 @@ import { MainComponent } from './layouts/main/main.component';
 import { NavbarComponent } from './layouts/navbar/navbar.component';
 import { PageRibbonComponent } from './layouts/profiles/page-ribbon.component';
 import { ErrorComponent } from './layouts/error/error.component';
+import { BasketModule } from 'app/basket/basket.module';
 
 @NgModule({
-  imports: [BrowserModule, BooksShopSharedModule, BooksShopCoreModule, BooksShopHomeModule, BooksShopAppRoutingModule],
+  imports: [BrowserModule, BooksShopSharedModule, BooksShopCoreModule, BooksShopHomeModule, BooksShopAppRoutingModule, BasketModule],
   declarations: [MainComponent, NavbarComponent, ErrorComponent, PageRibbonComponent],
   bootstrap: [MainComponent]
 })

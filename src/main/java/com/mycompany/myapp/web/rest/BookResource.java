@@ -4,6 +4,7 @@ import com.mycompany.myapp.domain.Book;
 import com.mycompany.myapp.service.BookService;
 import com.mycompany.myapp.service.OrderService;
 import com.mycompany.myapp.service.dto.OrderDTO;
+import com.mycompany.myapp.service.dto.OrderStatusDTO;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -38,5 +39,10 @@ public class BookResource {
     @PostMapping("/order")
     public void order(@RequestBody OrderDTO orderDTO) {
         orderService.order(orderDTO);
+    }
+
+    @GetMapping("/order/{login}")
+    public List<OrderStatusDTO> getOrdersStatus(@PathVariable String login) {
+        return orderService.getOrders(login);
     }
 }

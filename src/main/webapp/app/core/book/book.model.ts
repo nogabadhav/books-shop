@@ -5,8 +5,17 @@ export interface IBook {
   price?: number;
   amount?: number;
   inventory?: number;
+  isBasket?: boolean;
 }
 
 export class Book implements IBook {
-  constructor(public id?: any, public name?: string, public imageUrl?: string, price?: number, amount?: number, inventory?: number) {}
+  constructor(
+    public id?: any,
+    public name?: string,
+    public imageUrl?: string,
+    public price?: number,
+    public amount?: number,
+    public inventory?: number,
+    public isBasket?: boolean
+  ) {}
 }

@@ -5,6 +5,7 @@ import { navbarRoute } from './layouts/navbar/navbar.route';
 import { DEBUG_INFO_ENABLED } from 'app/app.constants';
 
 import { UserRouteAccessService } from 'app/core/auth/user-route-access-service';
+import { BasketRouteAccess } from 'app/core/auth/basket-route-access.service';
 
 const LAYOUT_ROUTES = [navbarRoute, ...errorRoute];
 
@@ -30,6 +31,7 @@ const LAYOUT_ROUTES = [navbarRoute, ...errorRoute];
         },
         {
           path: 'basket',
+          canActivate: [BasketRouteAccess],
           loadChildren: () => import('./basket/basket.module').then(m => m.BasketModule)
         },
         ...LAYOUT_ROUTES

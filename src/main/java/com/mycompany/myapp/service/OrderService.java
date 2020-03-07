@@ -8,6 +8,7 @@ import com.mycompany.myapp.repository.OrderStatusRepository;
 import com.mycompany.myapp.repository.UserRepository;
 import com.mycompany.myapp.service.dto.BookOrderDTO;
 import com.mycompany.myapp.service.dto.OrderDTO;
+import com.mycompany.myapp.service.dto.OrderStatusDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -47,5 +48,21 @@ public class OrderService {
 
     private BookOrder toBookOrder(BookOrderDTO t) {
         return new BookOrder().setAmount(t.getAmount()).setBook(bookRepository.findByName(t.getName()).orElse(null));
+    }
+
+    public List<OrderStatusDTO> getOrders(String login) {
+        return orderRepository.findByUser(userRepository.findOneByLogin(login).orElse(null))
+            .stream().map(this::toOrderStatus).collect(Collectors.toList());
+    }
+
+    private OrderStatusDTO toOrderStatus(Order o) {
+        return new OrderStatusDTO()
+            .setStatus(o.getOrderStatus().getStatus())
+            .setDate(o.getTime())
+            .setBooks(o.getBookOrders().stream().map(this::toBookOrderDTO).collect(Collectors.toList()));
+    }
+
+    private BookOrderDTO toBookOrderDTO(BookOrder b) {
+        return new BookOrderDTO().setAmount(b.getAmount()).setName(b.getBook().getName());
     }
 }
