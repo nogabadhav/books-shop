@@ -28,6 +28,10 @@ const LAYOUT_ROUTES = [navbarRoute, ...errorRoute];
           path: 'book',
           loadChildren: () => import('./catagory/catagory.module').then(m => m.CatagoryModule)
         },
+        {
+          path: 'basket',
+          loadChildren: () => import('./basket/basket.module').then(m => m.BasketModule)
+        },
         ...LAYOUT_ROUTES
       ],
       { enableTracing: DEBUG_INFO_ENABLED }

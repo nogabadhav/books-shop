@@ -1,0 +1,33 @@
+<div>
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th scope="col"><span>ספר</span></th>
+            <th scope="col"><span>כמות</span></th>
+            <th scope="col">מחיר</th>
+            <th scope="col"><span></span></th>
+            <th scope="col"></th>
+        </tr>
+        </thead>
+        <tbody *ngIf="books">
+        <tr *ngFor="let book of books">
+            <td>{{book.name}}</td>
+            <td>{{book.amount}}</td>
+            <td>{{book.price * book.amount}}</td>
+            <td>
+                <button class="btn btn-danger btn-sm" (click)="deleteFromBasket(book)">Deactivated</button>
+                <button class="btn btn-success btn-sm">Activated</button>
+            </td>
+            <td class="text-right">
+                <div class="btn-group">
+                    <button type="button" (click)="deleteFromBasket(book)"
+                            class="btn btn-danger btn-sm">
+                        <fa-icon icon="times"></fa-icon>
+                        <span class="d-none d-md-inline">Delete</span>
+                    </button>
+                </div>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>

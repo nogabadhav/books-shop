@@ -32,4 +32,16 @@ export class BookService {
   getBasket(): Observable<IBook[]> {
     return this.basket.asObservable();
   }
+
+  removeFromBasket(book: IBook): void {
+    this.basket.next(this.remove(this.basket.getValue(), book));
+  }
+
+  remove<T>(myArray: T[], item: T): T[] {
+    const index = myArray.indexOf(item, 0);
+    if (index > -1) {
+      myArray.splice(index, 1);
+    }
+    return myArray;
+  }
 }

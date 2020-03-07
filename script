@@ -28,6 +28,8 @@ insert into authors values (27, 'אנגי סייג');
 insert into authors values (28, 'אמי רובינגר');
 insert into authors values (29, 'פמלה בוצרט');
 insert into authors values (30, 'סטיבן הוקינג');
+insert into authors values (31, 'ל.נ טולסטוי');
+insert into authors values (32, 'ג.ד סלינגר');
 
 insert into catagories (id, name, description) values (1, 'מתח', 'מתח');
 insert into catagories (id, name, description) values (2, 'פנטזיה', 'פנטזיה');
@@ -110,10 +112,14 @@ insert into books (id, author_id, catagory_id, name, price, inventory, image_url
 values (36, 4, 6, 'שחר מפציע', 80.0, 30, '../../../content/images/twilight4.png');
 insert into books (id, author_id, catagory_id, name, price, inventory, image_url)
 values (37, 7, 4, 'הבית של יעל', 20.0, 6, '../../../content/images/yael.jpg');
+insert into books (id, author_id, catagory_id, name, price, inventory, image_url)
+values (38, 31, 3, 'מלחמה ושלום', 20.0, 6, '../../../content/images/peace.jpg');
+insert into books (id, author_id, catagory_id, name, price, inventory, image_url)
+values (39, 32, 3, 'התפסן בשדה השיפון', 20.0, 6, '../../../content/images/shipon.jpg');
 
 insert into recommended_books values (1, 90, 1);
 insert into recommended_books values (2, 70, 34);
-insert into recommended_books values (3, 55, 35);
+insert into recommended_books values (3, 55, 38);
 insert into recommended_books values (4, 100, 14);
 insert into recommended_books values (5, 60, 15);
 insert into recommended_books values (6, 80, 3);
