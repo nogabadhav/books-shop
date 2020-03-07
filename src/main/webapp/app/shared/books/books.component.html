@@ -18,9 +18,8 @@
                         </button>
                     </form>
                 </div>
-                <div *ngIf="isAuthenticated() && book.isBasket">
-                    <fa-icon icon="check"></fa-icon>
-                    <fa-icon icon="cart-arrow-down"></fa-icon>
+                <div *ngIf="isAuthenticated() && book.isBasket" class="check-wrapper">
+                    <fa-icon class="check-icon" icon="check"></fa-icon>
                 </div>
             </div>
         </div>

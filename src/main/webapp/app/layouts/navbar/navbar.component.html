@@ -9,6 +9,13 @@
     <div class="navbar-collapse collapse" id="navbarResponsive" [ngbCollapse]="isNavbarCollapsed" [ngSwitch]="isAuthenticated()">
         <ul class="navbar-nav ml-auto">
             <li *ngSwitchCase="true" class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+                <a class="nav-link" routerLink="/orders" (click)="collapseNavbar()">
+                    <span>
+                        <span>מעקב הזמנות</span>
+                    </span>
+                </a>
+            </li>
+            <li *ngSwitchCase="true" class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
                 <a class="nav-link" routerLink="/basket" (click)="collapseNavbar()">
                     <span>
                         <span>סל קניות</span>

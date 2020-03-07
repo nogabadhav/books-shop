@@ -79,3 +79,15 @@ hr {
   flex-direction: column;
   height: 50px;
 }
+
+.check-icon {
+  color: green;
+  font-size: xx-large;
+  align-self: center;
+}
+
+.check-wrapper {
+  height: 50px;
+  justify-content: center;
+  display: flex;
+}
