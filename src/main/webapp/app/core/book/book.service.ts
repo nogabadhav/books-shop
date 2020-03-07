@@ -13,9 +13,9 @@ export class BookService {
   constructor(private http: HttpClient) {}
 
   private initBooks(books: IBook[]): IBook[] {
-    for (let b of books) {
+    for (const b of books) {
       b.amount = 1;
-      let find = this.basket.getValue().find(book => book.id === b.id);
+      const find = this.basket.getValue().find(book => book.id === b.id);
       if (find) {
         b.isBasket = true;
       }
