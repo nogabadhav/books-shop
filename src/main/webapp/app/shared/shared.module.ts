@@ -6,11 +6,20 @@ import { LoginModalComponent } from './login/login.component';
 import { HasAnyAuthorityDirective } from './auth/has-any-authority.directive';
 import { BooksComponent } from 'app/shared/books/books.component';
 import { PaymentModalComponent } from 'app/shared/payment/payment.component';
+import { BookInfoModalComponent } from 'app/shared/book-info/book-info.component';
 
 @NgModule({
   imports: [BooksShopSharedLibsModule],
-  declarations: [AlertComponent, AlertErrorComponent, LoginModalComponent, HasAnyAuthorityDirective, BooksComponent, PaymentModalComponent],
-  entryComponents: [LoginModalComponent, PaymentModalComponent],
+  declarations: [
+    AlertComponent,
+    AlertErrorComponent,
+    LoginModalComponent,
+    HasAnyAuthorityDirective,
+    BooksComponent,
+    PaymentModalComponent,
+    BookInfoModalComponent
+  ],
+  entryComponents: [LoginModalComponent, PaymentModalComponent, BookInfoModalComponent],
   exports: [
     BooksShopSharedLibsModule,
     AlertComponent,
@@ -18,7 +27,8 @@ import { PaymentModalComponent } from 'app/shared/payment/payment.component';
     LoginModalComponent,
     HasAnyAuthorityDirective,
     BooksComponent,
-    PaymentModalComponent
+    PaymentModalComponent,
+    BookInfoModalComponent
   ]
 })
 export class BooksShopSharedModule {}

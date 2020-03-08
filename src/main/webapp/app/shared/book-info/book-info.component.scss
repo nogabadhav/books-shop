@@ -1,0 +1,16 @@
+.container {
+  padding: 2px 16px;
+  text-align: right !important;
+}
+
+.book {
+  display: inline-block;
+  width: 245px;
+  height: 400px;
+  background-size: cover !important;
+}
+
+.book-wrapper {
+  display: grid;
+  grid-template-columns: 50% 50%;
+}

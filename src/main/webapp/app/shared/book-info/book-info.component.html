@@ -1,0 +1,25 @@
+<div class="modal-header">
+    <button aria-label="Close" data-dismiss="modal" class="close" type="button" (click)="activeModal.dismiss('closed')">
+        <span aria-hidden="true">x</span>
+    </button>
+</div>
+
+<div class="modal-body" *ngIf="book">
+    <div class="row justify-content-center">
+        <div class="book-wrapper">
+            <span class="book img-fluid rounded"
+                  [ngStyle]="{'background': 'url(\'' + book.imageUrl + '\') no-repeat center top'}"></span>
+            <div class="container">
+                <div>
+                    <h1><b>{{book.name}}</b></h1>
+                    <br/>
+                    <h4 *ngIf="book.author" class="book-data"><b>{{book.author.name}}</b></h4>
+                    <h4 *ngIf="book.catagory" class="book-data"><b>{{book.catagory.description}}</b></h4>
+                </div>
+                <div>
+                    <h4 class="book-data"><b>{{book.price + ' ש״ח'}}</b></h4>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

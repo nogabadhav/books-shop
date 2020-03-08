@@ -10,7 +10,8 @@ import { Router } from '@angular/router';
 
 @Component({
   selector: 'payment-modal',
-  templateUrl: './payment.component.html'
+  templateUrl: './payment.component.html',
+  styleUrls: ['./payment.component.scss']
 })
 export class PaymentModalComponent implements OnInit, OnDestroy {
   error = false;

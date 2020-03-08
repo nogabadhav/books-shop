@@ -33,6 +33,7 @@ export class BookService {
 
   pay(bookOrders: IBook[], userLogin: string): void {
     this.http.post(`${this.resourceUrl}/order`, { bookOrders, userLogin });
+    this.basket.next([]);
   }
 
   addToBasket(book: IBook): void {

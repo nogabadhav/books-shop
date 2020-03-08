@@ -1,7 +1,7 @@
 <div>
     <div class="card-wrapper">
         <div *ngFor="let book of books" class="card">
-            <span class="book img-fluid rounded"
+            <span (click)="showInfo(book)" class="book img-fluid rounded"
                   [ngStyle]="{'background': 'url(\'' + book.imageUrl + '\') no-repeat center top'}"></span>
             <div class="container">
                 <h4 class="book-data"><b>{{book.name}}</b></h4>
