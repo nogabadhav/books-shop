@@ -21,8 +21,7 @@ export class PaymentModalComponent implements OnInit, OnDestroy {
 
   paymentForm = this.fb.group({
     creditCard: [''],
-    cvv: [''],
-    expire: ['']
+    cvv: ['']
   });
 
   constructor(

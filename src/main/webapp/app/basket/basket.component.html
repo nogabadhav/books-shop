@@ -27,5 +27,5 @@
     </table>
 
     <h1><span>סה״כ: {{price()}} ש״ח</span></h1>
-    <button class="btn btn-success btn-sm" (click)="pay()">המשך לתשלום</button>
+    <button class="btn btn-success btn-sm" (click)="pay()" *ngIf="books.length">המשך לתשלום</button>
 </div>
