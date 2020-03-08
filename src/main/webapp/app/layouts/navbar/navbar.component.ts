@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { VERSION } from 'app/app.constants';
 import { AccountService } from 'app/core/auth/account.service';
 import { LoginModalService } from 'app/core/login/login-modal.service';
 import { LoginService } from 'app/core/login/login.service';
@@ -16,7 +15,6 @@ export class NavbarComponent implements OnInit {
   inProduction?: boolean;
   isNavbarCollapsed = true;
   swaggerEnabled?: boolean;
-  version: string;
 
   constructor(
     private loginService: LoginService,
@@ -24,9 +22,7 @@ export class NavbarComponent implements OnInit {
     private loginModalService: LoginModalService,
     private profileService: ProfileService,
     private router: Router
-  ) {
-    this.version = VERSION ? (VERSION.toLowerCase().startsWith('v') ? VERSION : 'v' + VERSION) : '';
-  }
+  ) {}
 
   ngOnInit(): void {
     this.profileService.getProfileInfo().subscribe(profileInfo => {
