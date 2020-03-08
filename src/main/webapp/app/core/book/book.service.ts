@@ -3,7 +3,9 @@ import { HttpClient } from '@angular/common/http';
 import { IBook } from 'app/core/book/book.model';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { SERVER_API_URL } from 'app/app.constants';
-import { map } from 'rxjs/operators';
+import { map, tap } from 'rxjs/operators';
+import { IOrder } from 'app/core/order/order.module';
+import { OrderReturnStatus } from 'app/core/book/order-return-status.model';
 
 @Injectable({ providedIn: 'root' })
 export class BookService {
@@ -31,9 +33,20 @@ export class BookService {
     return this.http.get<IBook[]>(`${this.resourceUrl}/category/${name}`).pipe(map(books => this.initBooks(books)));
   }
 
-  pay(bookOrders: IBook[], userLogin: string): void {
-    this.http.post(`${this.resourceUrl}/order`, { bookOrders, userLogin });
-    this.basket.next([]);
+  pay(bookOrders: IBook[], userLogin: string): Observable<OrderReturnStatus> {
+    return this.http
+      .post<OrderReturnStatus>(`${this.resourceUrl}/order`, { bookOrders, userLogin })
+      .pipe(
+        tap(status => {
+          if (status.ok) {
+            this.basket.next([]);
+          }
+        })
+      );
+  }
+
+  getOrders(): Observable<IOrder[]> {
+    return this.http.get<IOrder[]>(`${this.resourceUrl}/orders`);
   }
 
   addToBasket(book: IBook): void {

@@ -3,7 +3,9 @@ package com.mycompany.myapp.web.rest;
 import com.mycompany.myapp.domain.Book;
 import com.mycompany.myapp.service.BookService;
 import com.mycompany.myapp.service.OrderService;
+import com.mycompany.myapp.service.OutOfInventoryException;
 import com.mycompany.myapp.service.dto.OrderDTO;
+import com.mycompany.myapp.service.dto.OrderReturnStatus;
 import com.mycompany.myapp.service.dto.OrderStatusDTO;
 import org.springframework.web.bind.annotation.*;
 
@@ -37,12 +39,17 @@ public class BookResource {
     }
 
     @PostMapping("/order")
-    public void order(@RequestBody OrderDTO orderDTO) {
-        orderService.order(orderDTO);
+    public OrderReturnStatus order(@RequestBody OrderDTO orderDTO) {
+        try {
+            orderService.order(orderDTO);
+            return new OrderReturnStatus().setOk(true);
+        } catch (OutOfInventoryException e) {
+            return new OrderReturnStatus().setBook(e.getBook()).setOk(false);
+        }
     }
 
-    @GetMapping("/order/{login}")
-    public List<OrderStatusDTO> getOrdersStatus(@PathVariable String login) {
-        return orderService.getOrders(login);
+    @GetMapping("/orders}")
+    public List<OrderStatusDTO> getOrdersStatus() {
+        return orderService.getOrders();
     }
 }

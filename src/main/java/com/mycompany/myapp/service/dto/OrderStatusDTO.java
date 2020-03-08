@@ -1,12 +1,13 @@
 package com.mycompany.myapp.service.dto;
 
-import java.util.Date;
 import java.util.List;
 
 public class OrderStatusDTO {
     private String status;
-    private Date date;
+    private String date;
     private List<BookOrderDTO> books;
+    private String login;
+    private double price;
 
     public String getStatus() {
         return status;
@@ -17,7 +18,7 @@ public class OrderStatusDTO {
         return this;
     }
 
-    public OrderStatusDTO setDate(Date date) {
+    public OrderStatusDTO setDate(String date) {
         this.date = date;
         return this;
     }
@@ -27,11 +28,29 @@ public class OrderStatusDTO {
         return this;
     }
 
-    public Date getDate() {
+    public String getDate() {
         return date;
     }
 
     public List<BookOrderDTO> getBooks() {
         return books;
+    }
+
+    public String getLogin() {
+        return login;
+    }
+
+    public OrderStatusDTO setLogin(String login) {
+        this.login = login;
+        return this;
+    }
+
+    public double getPrice() {
+        return price;
+    }
+
+    public OrderStatusDTO setPrice(double price) {
+        this.price = price;
+        return this;
     }
 }

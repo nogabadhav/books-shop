@@ -14,11 +14,12 @@ import { Router } from '@angular/router';
   styleUrls: ['./payment.component.scss']
 })
 export class PaymentModalComponent implements OnInit, OnDestroy {
-  error = false;
   private authSubscription?: Subscription;
   private account: Account | null = null;
   private basketSubscription?: Subscription;
   private books: IBook[] = [];
+  private orderSubscription?: Subscription;
+  outOfStockBook?: IBook;
 
   paymentForm = this.fb.group({
     creditCard: [''],
@@ -35,9 +36,14 @@ export class PaymentModalComponent implements OnInit, OnDestroy {
 
   pay(): void {
     if (this.account) {
-      this.bookService.pay(this.books, this.account.login);
-      this.activeModal.close();
-      this.router.navigate(['']);
+      this.orderSubscription = this.bookService.pay(this.books, this.account.login).subscribe(status => {
+        if (status.ok) {
+          this.activeModal.close();
+          this.router.navigate(['']);
+        } else {
+          this.outOfStockBook = status.book;
+        }
+      });
     }
   }
 
@@ -52,6 +58,9 @@ export class PaymentModalComponent implements OnInit, OnDestroy {
     }
     if (this.basketSubscription) {
       this.basketSubscription.unsubscribe();
+    }
+    if (this.orderSubscription) {
+      return this.orderSubscription.unsubscribe();
     }
   }
 }

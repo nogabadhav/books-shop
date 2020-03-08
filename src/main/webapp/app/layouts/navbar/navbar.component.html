@@ -67,18 +67,18 @@
             <li *jhiHasAnyAuthority="'ROLE_ADMIN'" ngbDropdown class="nav-item dropdown pointer" display="dynamic" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
                 <a class="nav-link dropdown-toggle" ngbDropdownToggle href="javascript:void(0);" id="admin-menu">
                     <span>
-                        <span>Administration</span>
+                        <span>אדמיניסטרציה</span>
                     </span>
                 </a>
                 <ul class="dropdown-menu" ngbDropdownMenu aria-labelledby="admin-menu">
                     <li>
-                        <a class="dropdown-item" routerLink="admin/user-management" routerLinkActive="active" (click)="collapseNavbar()">
-                            <span>User management</span>
+                        <a class="dropdown-item" routerLink="admin/orders" routerLinkActive="active" (click)="collapseNavbar()">
+                            <span>מעקב הזמנות</span>
                         </a>
                     </li>
                     <li>
-                        <a class="dropdown-item" routerLink="admin/orders" routerLinkActive="active" (click)="collapseNavbar()">
-                            <span>מעקב הזמנות</span>
+                        <a class="dropdown-item" routerLink="admin/inventory" routerLinkActive="active" (click)="collapseNavbar()">
+                            <span>ניהול מלאי</span>
                         </a>
                     </li>
                 </ul>

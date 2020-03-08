@@ -1,0 +1,24 @@
+<div dir="rtl">
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th scope="col"><span>שם משתמש</span></th>
+            <th scope="col"><span>תשלום</span></th>
+            <th scope="col">סטטוס</th>
+            <th scope="col">ספרים</th>
+        </tr>
+        </thead>
+        <tbody *ngIf="orders">
+        <tr *ngFor="let order of orders">
+            <td>{{order.login}}</td>
+            <td>{{order.price}}</td>
+            <td>{{order.status | orderStatus}}</td>
+            <td class="text-right">
+                <div *ngFor="let book of order.books">
+                    <span> {{book.name}} </span>
+                </div>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>

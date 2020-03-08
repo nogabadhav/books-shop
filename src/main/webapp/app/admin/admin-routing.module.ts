@@ -1,23 +1,21 @@
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
-/* jhipster-needle-add-admin-module-import - JHipster will add admin modules imports here */
 
 @NgModule({
   imports: [
-    /* jhipster-needle-add-admin-module - JHipster will add admin modules here */
     RouterModule.forChild([
       {
-        path: 'user-management',
-        loadChildren: () => import('./user-management/user-management.module').then(m => m.UserManagementModule),
+        path: 'orders',
+        loadChildren: () => import('./orders/orders.module').then(m => m.OrdersModule),
         data: {
-          pageTitle: 'Users'
+          pageTitle: 'מעקב הזמנות'
         }
       },
       {
-        path: 'orders',
-        loadChildren: () => import('./user-management/user-management.module').then(m => m.UserManagementModule),
+        path: 'inventory',
+        loadChildren: () => import('./orders/orders.module').then(m => m.OrdersModule),
         data: {
-          pageTitle: 'Users'
+          pageTitle: 'ניהול מלאי'
         }
       }
     ])
