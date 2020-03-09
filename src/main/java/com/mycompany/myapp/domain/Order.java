@@ -1,6 +1,6 @@
 package com.mycompany.myapp.domain;
 
-import org.springframework.data.annotation.CreatedDate;
+import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -24,7 +24,8 @@ public class Order {
     @ManyToOne
     private User user;
 
-    @CreatedDate
+    @CreationTimestamp
+    @Column(name = "time")
     private Date time;
 
     public Long getId() {

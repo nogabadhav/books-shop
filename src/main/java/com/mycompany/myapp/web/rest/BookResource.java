@@ -48,7 +48,7 @@ public class BookResource {
         }
     }
 
-    @GetMapping("/orders}")
+    @GetMapping("/orders")
     public List<OrderStatusDTO> getOrdersStatus() {
         return orderService.getOrders();
     }
