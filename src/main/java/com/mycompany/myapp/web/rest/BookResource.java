@@ -52,4 +52,9 @@ public class BookResource {
     public List<OrderStatusDTO> getOrdersStatus() {
         return orderService.getOrders();
     }
+
+    @PostMapping("/update")
+    public void updateBook(@RequestBody Book book) {
+        bookService.updateBook(book);
+    }
 }

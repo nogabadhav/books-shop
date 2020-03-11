@@ -7,6 +7,7 @@ import { Account } from 'app/core/user/account.model';
 import { BookService } from 'app/core/book/book.service';
 import { IBook } from 'app/core/book/book.model';
 import { Router } from '@angular/router';
+import { JhiAlertService } from 'ng-jhipster';
 
 @Component({
   selector: 'payment-modal',
@@ -31,7 +32,8 @@ export class PaymentModalComponent implements OnInit, OnDestroy {
     private fb: FormBuilder,
     private accountService: AccountService,
     private bookService: BookService,
-    private router: Router
+    private router: Router,
+    private alertService: JhiAlertService
   ) {}
 
   pay(): void {
@@ -40,6 +42,7 @@ export class PaymentModalComponent implements OnInit, OnDestroy {
         if (status.ok) {
           this.activeModal.close();
           this.router.navigate(['']);
+          this.alertService.success('ההזמנה התקבלה בהצלחה!');
         } else {
           this.outOfStockBook = status.book;
         }

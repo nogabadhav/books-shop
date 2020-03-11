@@ -13,7 +13,7 @@ import { RouterModule } from '@angular/router';
       },
       {
         path: 'inventory',
-        loadChildren: () => import('./orders/orders.module').then(m => m.OrdersModule),
+        loadChildren: () => import('./inventory/inventory.module').then(m => m.InventoryModule),
         data: {
           pageTitle: 'ניהול מלאי'
         }

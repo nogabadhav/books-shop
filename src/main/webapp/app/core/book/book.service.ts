@@ -49,6 +49,10 @@ export class BookService {
     return this.http.get<IOrder[]>(`${this.resourceUrl}/orders`);
   }
 
+  getAll(): Observable<IBook[]> {
+    return this.http.get<IBook[]>(`${this.resourceUrl}/all`);
+  }
+
   addToBasket(book: IBook): void {
     book.isBasket = true;
     this.basket.next([...this.basket.getValue(), book]);
@@ -69,5 +73,9 @@ export class BookService {
       myArray.splice(index, 1);
     }
     return myArray;
+  }
+
+  save(book: IBook): void {
+    this.http.post(`${this.resourceUrl}/update`, book).subscribe();
   }
 }

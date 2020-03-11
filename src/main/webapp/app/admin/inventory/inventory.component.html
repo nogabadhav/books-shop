@@ -1,0 +1,33 @@
+<div dir="rtl" style="display: flex; flex-direction: column">
+    <input style="width: 30%" type="text" [(ngModel)]="filter" (ngModelChange)="filterBooks()"/>
+    <br/>
+    <table class="table table-striped" style="text-align: right">
+        <thead>
+        <tr>
+            <th scope="col"><span>שם</span></th>
+            <th scope="col"><span>סופר</span></th>
+            <th scope="col">מצאי</th>
+            <th scope="col">מחיר</th>
+            <th scope="col">קטגוריה</th>
+            <th scope="col"></th>
+        </tr>
+        </thead>
+        <tbody *ngIf="books">
+        <tr *ngFor="let book of books">
+            <td><input class="form-input" name="name" type="text" [(ngModel)]="book.name"/></td>
+            <td><input type="text" [(ngModel)]="book.author.name"/></td>
+            <td><input type="number" [(ngModel)]="book.inventory" /></td>
+            <td><input type="number" [(ngModel)]="book.price" /></td>
+            <td><input type="text" [(ngModel)]="book.catagory.name" /></td>
+            <td>
+                <div class="btn-group">
+                    <button type="button" (click)="save(book)"
+                            class="btn btn-success btn-sm">
+                        <span class="d-none d-md-inline">שמירה</span>
+                    </button>
+                </div>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
