@@ -4,32 +4,21 @@ import { Router } from '@angular/router';
 import { AccountService } from 'app/core/auth/account.service';
 import { LoginModalService } from 'app/core/login/login-modal.service';
 import { LoginService } from 'app/core/login/login.service';
-import { ProfileService } from 'app/layouts/profiles/profile.service';
 
 @Component({
   selector: 'jhi-navbar',
   templateUrl: './navbar.component.html',
   styleUrls: ['navbar.scss']
 })
-export class NavbarComponent implements OnInit {
-  inProduction?: boolean;
+export class NavbarComponent {
   isNavbarCollapsed = true;
-  swaggerEnabled?: boolean;
 
   constructor(
     private loginService: LoginService,
     private accountService: AccountService,
     private loginModalService: LoginModalService,
-    private profileService: ProfileService,
     private router: Router
   ) {}
-
-  ngOnInit(): void {
-    this.profileService.getProfileInfo().subscribe(profileInfo => {
-      this.inProduction = profileInfo.inProduction;
-      this.swaggerEnabled = profileInfo.swaggerEnabled;
-    });
-  }
 
   collapseNavbar(): void {
     this.isNavbarCollapsed = true;

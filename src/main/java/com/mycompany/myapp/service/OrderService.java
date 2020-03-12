@@ -41,6 +41,15 @@ public class OrderService {
             order.setBookOrders(toBookOrders(orderDTO));
             bookOrderRepository.saveAll(order.getBookOrders());
             orderRepository.save(order);
+            updateInventory(order);
+        });
+    }
+
+    private void updateInventory(Order order) {
+        order.getBookOrders().forEach(bookOrder -> {
+            Book book = bookOrder.getBook();
+            book.setInventory(book.getInventory() - bookOrder.getAmount());
+            bookRepository.save(book);
         });
     }
 
