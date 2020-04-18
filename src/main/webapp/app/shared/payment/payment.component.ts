@@ -1,6 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
-import { FormBuilder } from '@angular/forms';
+import { FormBuilder, Validators } from '@angular/forms';
 import { Subscription } from 'rxjs';
 import { AccountService } from 'app/core/auth/account.service';
 import { Account } from 'app/core/user/account.model';
@@ -20,11 +20,12 @@ export class PaymentModalComponent implements OnInit, OnDestroy {
   private basketSubscription?: Subscription;
   private books: IBook[] = [];
   private orderSubscription?: Subscription;
-  outOfStockBook?: IBook;
+  errorMessage?: string;
 
   paymentForm = this.fb.group({
-    creditCard: [''],
-    cvv: ['']
+    creditCard: ['', [Validators.required, Validators.minLength(16), Validators.maxLength(16)]],
+    cvv: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(3)]],
+    expirationDate: ['', [Validators.required]]
   });
 
   constructor(
@@ -38,15 +39,20 @@ export class PaymentModalComponent implements OnInit, OnDestroy {
 
   pay(): void {
     if (this.account) {
-      this.orderSubscription = this.bookService.pay(this.books, this.account.login).subscribe(status => {
-        if (status.ok) {
-          this.activeModal.close();
-          this.router.navigate(['']);
-          this.alertService.success('ההזמנה התקבלה בהצלחה!');
-        } else {
-          this.outOfStockBook = status.book;
-        }
-      });
+      const creditCard = this.paymentForm.get(['creditCard'])!.value;
+      const cvv = this.paymentForm.get(['cvv'])!.value;
+      const expirationDate = this.paymentForm.get(['expirationDate'])!.value;
+      this.orderSubscription = this.bookService
+        .pay(this.books, this.account.login, { creditCard, cvv, expirationDate })
+        .subscribe(status => {
+          if (status.ok) {
+            this.activeModal.close();
+            this.router.navigate(['']);
+            this.alertService.success('ההזמנה התקבלה בהצלחה!');
+          } else {
+            this.errorMessage = status.message;
+          }
+        });
     }
   }
 

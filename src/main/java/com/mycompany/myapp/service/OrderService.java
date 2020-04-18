@@ -23,18 +23,24 @@ public class OrderService {
     private BookRepository bookRepository;
     private OrderRepository orderRepository;
     private BookOrderRepository bookOrderRepository;
+    private PaymentService paymentService;
 
     @Autowired
-    public OrderService(UserRepository userRepository, OrderStatusRepository orderStatusRepository, BookRepository bookRepository, OrderRepository orderRepository, BookOrderRepository bookOrderRepository) {
+    public OrderService(UserRepository userRepository, OrderStatusRepository orderStatusRepository,
+                        BookRepository bookRepository, OrderRepository orderRepository,
+                        BookOrderRepository bookOrderRepository,
+                        PaymentService paymentService) {
         this.userRepository = userRepository;
         this.orderStatusRepository = orderStatusRepository;
         this.bookRepository = bookRepository;
         this.orderRepository = orderRepository;
         this.bookOrderRepository = bookOrderRepository;
+        this.paymentService = paymentService;
     }
 
     public void order(OrderDTO orderDTO) {
         userRepository.findOneByLogin(orderDTO.getUserLogin()).ifPresent(user -> {
+            paymentService.pay(orderDTO.getPayment());
             Order order = new Order();
             order.setOrderStatus(orderStatusRepository.findByStatus("NEW"));
             order.setUser(user);

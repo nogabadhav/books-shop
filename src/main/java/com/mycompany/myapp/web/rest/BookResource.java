@@ -4,6 +4,7 @@ import com.mycompany.myapp.domain.Book;
 import com.mycompany.myapp.service.BookService;
 import com.mycompany.myapp.service.OrderService;
 import com.mycompany.myapp.service.OutOfInventoryException;
+import com.mycompany.myapp.service.PaymentException;
 import com.mycompany.myapp.service.dto.OrderDTO;
 import com.mycompany.myapp.service.dto.OrderReturnStatus;
 import com.mycompany.myapp.service.dto.OrderStatusDTO;
@@ -44,7 +45,9 @@ public class BookResource {
             orderService.order(orderDTO);
             return new OrderReturnStatus().setOk(true);
         } catch (OutOfInventoryException e) {
-            return new OrderReturnStatus().setBook(e.getBook()).setOk(false);
+            return new OrderReturnStatus().setMessage("אין מספיק במלאי את הספר " + e.getBook().getName()).setOk(false);
+        } catch (PaymentException e) {
+            return new OrderReturnStatus().setMessage("התשלום לא הצליח: " + e.getMessage()).setOk(false);
         }
     }
 

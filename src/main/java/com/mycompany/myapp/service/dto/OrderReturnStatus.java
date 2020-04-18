@@ -1,10 +1,8 @@
 package com.mycompany.myapp.service.dto;
 
-import com.mycompany.myapp.domain.Book;
-
 public class OrderReturnStatus {
     private boolean ok;
-    private Book book;
+    private String message;
 
     public boolean isOk() {
         return ok;
@@ -15,12 +13,12 @@ public class OrderReturnStatus {
         return this;
     }
 
-    public Book getBook() {
-        return book;
+    public String getMessage() {
+        return message;
     }
 
-    public OrderReturnStatus setBook(Book book) {
-        this.book = book;
+    public OrderReturnStatus setMessage(String message) {
+        this.message = message;
         return this;
     }
 }

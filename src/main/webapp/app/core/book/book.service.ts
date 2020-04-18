@@ -6,6 +6,7 @@ import { SERVER_API_URL } from 'app/app.constants';
 import { map, tap } from 'rxjs/operators';
 import { IOrder } from 'app/core/order/order.module';
 import { OrderReturnStatus } from 'app/core/book/order-return-status.model';
+import { IPayment } from 'app/core/payment/payment.model';
 
 @Injectable({ providedIn: 'root' })
 export class BookService {
@@ -33,9 +34,9 @@ export class BookService {
     return this.http.get<IBook[]>(`${this.resourceUrl}/category/${name}`).pipe(map(books => this.initBooks(books)));
   }
 
-  pay(bookOrders: IBook[], userLogin: string): Observable<OrderReturnStatus> {
+  pay(bookOrders: IBook[], userLogin: string, payment: IPayment): Observable<OrderReturnStatus> {
     return this.http
-      .post<OrderReturnStatus>(`${this.resourceUrl}/order`, { bookOrders, userLogin })
+      .post<OrderReturnStatus>(`${this.resourceUrl}/order`, { bookOrders, userLogin, payment })
       .pipe(
         tap(status => {
           if (status.ok) {
