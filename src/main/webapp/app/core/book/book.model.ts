@@ -7,7 +7,7 @@ export interface IBook {
   inventory?: number;
   isBasket?: boolean;
   author?: { name: string };
-  catagory?: { name: string };
+  category?: { name: string };
 }
 
 export class Book implements IBook {

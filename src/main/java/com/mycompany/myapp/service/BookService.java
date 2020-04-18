@@ -2,11 +2,11 @@ package com.mycompany.myapp.service;
 
 import com.mycompany.myapp.domain.Author;
 import com.mycompany.myapp.domain.Book;
-import com.mycompany.myapp.domain.Catagory;
+import com.mycompany.myapp.domain.Category;
 import com.mycompany.myapp.domain.RecommendedBook;
 import com.mycompany.myapp.repository.AuthorsRepository;
 import com.mycompany.myapp.repository.BookRepository;
-import com.mycompany.myapp.repository.CatagoryRepository;
+import com.mycompany.myapp.repository.CategoryRepository;
 import com.mycompany.myapp.repository.RecommendedBookRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -20,16 +20,16 @@ import java.util.stream.Collectors;
 public class BookService {
 
     private BookRepository bookRepository;
-    private CatagoryRepository catagoryRepository;
+    private CategoryRepository categoryRepository;
     private RecommendedBookRepository recommendedBookRepository;
     private AuthorsRepository authorsRepository;
 
     @Autowired
     public BookService(BookRepository bookRepository, RecommendedBookRepository recommendedBookRepository,
-                       CatagoryRepository catagoryRepository, AuthorsRepository authorsRepository) {
+                       CategoryRepository categoryRepository, AuthorsRepository authorsRepository) {
         this.bookRepository = bookRepository;
         this.recommendedBookRepository = recommendedBookRepository;
-        this.catagoryRepository = catagoryRepository;
+        this.categoryRepository = categoryRepository;
         this.authorsRepository = authorsRepository;
     }
 
@@ -38,8 +38,8 @@ public class BookService {
     }
 
     public List<Book> getByCategory(String categoryName) {
-        return catagoryRepository.findByName(categoryName)
-            .map(c -> bookRepository.findByCatagory(c))
+        return categoryRepository.findByName(categoryName)
+            .map(c -> bookRepository.findByCategory(c))
             .orElse(new ArrayList<>());
     }
 
@@ -48,10 +48,10 @@ public class BookService {
     }
 
     public void updateBook(Book book) {
-        Optional<Catagory> category = catagoryRepository.findByName(book.getCatagory().getName());
+        Optional<Category> category = categoryRepository.findByName(book.getCategory().getName());
         Optional<Author> author = authorsRepository.findByName(book.getAuthor().getName());
         book.setAuthor(author.orElse(null));
-        book.setCatagory(category.orElse(null));
+        book.setCategory(category.orElse(null));
         bookRepository.save(book);
     }
 }

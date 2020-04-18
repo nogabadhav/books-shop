@@ -30,7 +30,7 @@ public class BookResource {
     }
 
     @GetMapping("/category/{name}")
-    public List<Book> getByCatagory(@PathVariable String name) {
+    public List<Book> getByCategory(@PathVariable String name) {
         return bookService.getByCategory(name);
     }
 
@@ -56,7 +56,7 @@ public class BookResource {
         return orderService.getOrders();
     }
 
-    @PostMapping("/update")
+    @PutMapping("/update")
     public void updateBook(@RequestBody Book book) {
         bookService.updateBook(book);
     }

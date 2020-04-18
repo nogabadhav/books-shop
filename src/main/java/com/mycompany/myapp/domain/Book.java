@@ -20,7 +20,7 @@ public class Book implements Serializable {
     private String name;
 
     @ManyToOne
-    private Catagory catagory;
+    private Category category;
 
     @Column(name = "price", nullable = false)
     @NotNull
@@ -57,12 +57,12 @@ public class Book implements Serializable {
         this.author = author;
     }
 
-    public Catagory getCatagory() {
-        return catagory;
+    public Category getCategory() {
+        return category;
     }
 
-    public void setCatagory(Catagory catagory) {
-        this.catagory = catagory;
+    public void setCategory(Category category) {
+        this.category = category;
     }
 
     public double getPrice() {

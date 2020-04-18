@@ -1,12 +1,9 @@
 package com.mycompany.myapp.service.dto;
 
-import com.mycompany.myapp.config.Constants;
-
 import com.mycompany.myapp.domain.Authority;
 import com.mycompany.myapp.domain.User;
 
 import javax.validation.constraints.*;
-import java.time.Instant;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -17,8 +14,6 @@ public class UserDTO {
 
     private Long id;
 
-    @NotBlank
-    @Pattern(regexp = Constants.LOGIN_REGEX)
     @Size(min = 1, max = 50)
     private String login;
 

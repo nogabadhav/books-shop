@@ -1,0 +1,40 @@
+id;author_id;category_id;name;price;inventory;image_url
+1;1;2;הארי פוטר ואבן החכמים;50.0;100;../../../content/images/harrypotter.jpg
+2;2;6;מלאך משמיים;40.0;10;../../../content/images/angle.jpg
+3;3;4;דירה להשכיר;20.0;200;../../../content/images/apartment.jpg
+4;4;6;גוף מארח;50.0;100;../../../content/images/body.jpg
+5;5;6;המועמדת;50.0;100;../../../content/images/candidate.jpg
+6;6;6;עליית בן הכלאיים;50.0;100;../../../content/images/claym.jpg
+7;7;4;תירס חם;50.0;100;../../../content/images/corn.jpg
+8;8;2;שישה עורבים;50.0;100;../../../content/images/crow.jpg
+9;9;4;ספר הפילפילים;50.0;100;../../../content/images/elephant.jpg
+10;10;2;אלנטריס;50.0;100;../../../content/images/eltrs.jpg
+11;13;6;המשחק;50.0;100;../../../content/images/game.jpg
+12;14;2;אלים אמריקאים;50.0;100;../../../content/images/gods.png
+13;11;5;ההיסטוריה של המחר;50.0;100;../../../content/images/history.jpg
+14;11;5;קיצור תולדות האנושות;95.0;110;../../../content/images/human.jpg
+15;15;6;משחקי הרעב;74.0;110;../../../content/images/hunger1.jpg
+16;16;1;קר כקרח;74.0;110;../../../content/images/ice.jpg
+17;17;1;תהודת זהות;74.0;110;../../../content/images/id.jpg
+18;18;4;בדרך למכלת;74.0;110;../../../content/images/kid1.jpg
+19;19;4;הילד והדוב;74.0;110;../../../content/images/kid2.jpg
+20;20;3;כל השקרים היפים;74.0;110;../../../content/images/lies.jpg
+21;21;1;אבודה;74.0;110;../../../content/images/lost.jpg
+22;4;6;מולד הירח;74.0;110;../../../content/images/moon.jpg
+23;3;4;איה פלוטו;13.0;40;../../../content/images/pluto.jpg
+24;12;5;לא רציונלי ולא במקרה;45.0;3;../../../content/images/predictably.jpg
+25;22;2;נסיכת האפר;45.0;3;../../../content/images/prince.jpg
+26;23;1;הבטיחי לי;45.0;0;../../../content/images/promise.jpg
+27;12;5;לא רציונלי אבל לא נורא;65.0;2;../../../content/images/rational.jpg
+28;24;4;לפעמים עצב מגיע בהפתעה;12.0;4;../../../content/images/sad.jpg
+29;25;4;שלג של סביונים;7.99;1;../../../content/images/snow.jpg
+30;26;2;שירת אנטנטו;7.99;1;../../../content/images/song.jpg
+31;27;6;כישופ;28.0;1;../../../content/images/spell.jpg
+32;28;4;חלום של שלחן כחל;28.0;31;../../../content/images/table.jpg
+33;29;4;אסור לדגדג טיגריס;13.0;10;../../../content/images/tigris.jpg
+34;30;5;קיצור תולדות הזמן;105.0;9;../../../content/images/time.jpg
+35;4;6;דמדומים;80.0;30;../../../content/images/twilight1.jpg
+36;4;6;שחר מפציע;80.0;30;../../../content/images/twilight4.png
+37;7;4;הבית של יעל;20.0;6;../../../content/images/yael.jpg
+38;31;3;מלחמה ושלום;20.0;6;../../../content/images/peace.jpg
+39;32;3;התפסן בשדה השיפון;20.0;6;../../../content/images/shipon.jpg

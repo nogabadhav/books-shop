@@ -77,6 +77,6 @@ export class BookService {
   }
 
   save(book: IBook): void {
-    this.http.post(`${this.resourceUrl}/update`, book).subscribe();
+    this.http.put(`${this.resourceUrl}/update`, book).subscribe();
   }
 }
