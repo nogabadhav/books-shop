@@ -3,6 +3,7 @@ package com.mycompany.myapp.service.dto;
 import java.util.List;
 
 public class OrderStatusDTO {
+    private long id;
     private String status;
     private String date;
     private List<BookOrderDTO> books;
@@ -51,6 +52,15 @@ public class OrderStatusDTO {
 
     public OrderStatusDTO setPrice(double price) {
         this.price = price;
+        return this;
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public OrderStatusDTO setId(long id) {
+        this.id = id;
         return this;
     }
 }

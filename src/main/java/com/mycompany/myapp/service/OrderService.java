@@ -42,7 +42,7 @@ public class OrderService {
         userRepository.findOneByLogin(orderDTO.getUserLogin()).ifPresent(user -> {
             paymentService.pay(orderDTO.getPayment());
             Order order = new Order();
-            order.setOrderStatus(orderStatusRepository.findByStatus("NEW"));
+            order.setOrderStatus(orderStatusRepository.findByStatus("נרשם"));
             order.setUser(user);
             order.setBookOrders(toBookOrders(orderDTO));
             bookOrderRepository.saveAll(order.getBookOrders());
@@ -79,6 +79,7 @@ public class OrderService {
 
     private OrderStatusDTO toOrderStatus(Order o) {
         return new OrderStatusDTO()
+            .setId(o.getId())
             .setStatus(o.getOrderStatus().getStatus())
             .setDate(o.getTime().toString())
             .setLogin(o.getUser().getLogin())
@@ -88,5 +89,12 @@ public class OrderService {
 
     private BookOrderDTO toBookOrderDTO(BookOrder b) {
         return new BookOrderDTO().setAmount(b.getAmount()).setName(b.getBook().getName());
+    }
+
+    public void updateOrderStatus(OrderStatusDTO orderStatusDTO) {
+        orderRepository.findById(orderStatusDTO.getId()).ifPresent(order -> {
+            order.setOrderStatus(orderStatusRepository.findByStatus(orderStatusDTO.getStatus()));
+            orderRepository.save(order);
+        });
     }
 }

@@ -79,4 +79,8 @@ export class BookService {
   save(book: IBook): void {
     this.http.put(`${this.resourceUrl}/update`, book).subscribe();
   }
+
+  updateOrder(order: IOrder) {
+    this.http.put(`${this.resourceUrl}/updateOrder`, order).subscribe();
+  }
 }

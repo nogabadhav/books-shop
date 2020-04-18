@@ -60,4 +60,9 @@ public class BookResource {
     public void updateBook(@RequestBody Book book) {
         bookService.updateBook(book);
     }
+
+    @PutMapping("/updateOrder")
+    public void updateOrder(@RequestBody OrderStatusDTO orderStatusDTO) {
+        orderService.updateOrderStatus(orderStatusDTO);
+    }
 }

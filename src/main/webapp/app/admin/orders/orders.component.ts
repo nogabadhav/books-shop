@@ -23,4 +23,8 @@ export class OrdersComponent implements OnInit, OnDestroy {
       this.subscription.unsubscribe();
     }
   }
+
+  updateStatus(order: IOrder) {
+    this.bookService.updateOrder(order);
+  }
 }

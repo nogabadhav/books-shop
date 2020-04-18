@@ -12,7 +12,13 @@
         <tr *ngFor="let order of orders">
             <td>{{order.login}}</td>
             <td>{{order.price}}</td>
-            <td>{{order.status | orderStatus}}</td>
+            <td>
+                <select [(ngModel)]="order.status" (ngModelChange)="updateStatus(order)">
+                    <option value="נרשם">נרשם</option>
+                    <option value="בדרך ללקוח">בדרך ללקוח</option>
+                    <option value="הגיע">הגיע</option>
+                </select>
+            </td>
             <td class="text-right">
                 <div *ngFor="let book of order.books">
                     <span> {{book.name}} </span>
