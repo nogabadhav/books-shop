@@ -23,8 +23,8 @@ export class PaymentModalComponent implements OnInit, OnDestroy {
   errorMessage?: string;
 
   paymentForm = this.fb.group({
-    creditCard: ['', [Validators.required, Validators.minLength(16), Validators.maxLength(16)]],
-    cvv: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(3)]],
+    creditCard: ['', [Validators.required]],
+    cvv: ['', [Validators.required]],
     expirationDate: ['', [Validators.required]]
   });
 
